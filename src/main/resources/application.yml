@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: GoRental
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gorental
+    username: rental
+    password: root
+    initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        default_schema: rental
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+  flyway:
+    schemas: ${spring.jpa.properties.hibernate.default_schema}
+    baseline-on-migrate: true
+    locations:
+      - "classpath:migrations"
+
+
+  jackson:
+    default-property-inclusion: non_null
+
+
+  security:
+    user:
+      name: admin
+      password: test
+
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://test.pinket.com/auth-server/.well-known/jwks.json
+          jws-algorithm: RS512
+
+server:
+  port: 8083
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+jwt:
+  secret-key: your-secret-key
+  refresh-expiration-ms: 604800000
+  token-expiration-ms: 3600000
