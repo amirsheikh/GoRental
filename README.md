@@ -2,6 +2,34 @@
 
 GoRental is a car rental web application built using **Spring Boot**. It enables users to browse available rental cars, make reservations, and manage their accounts. The application uses **PostgreSQL** with the **PostGIS** extension for geographic data and **JWT** for user authentication.
 
+## Proposal
+
+For more details on the project's assessment, roadmap, MVP phases, and success metrics, please refer to the [full proposal](https://github.com/amirsheikh/GoRental/tree/master/proposal).
+
+## Features
+
+- **Phase 1**: Telegram Integration & Basic Features
+- **Phase 2**: User Management & Notifications
+- **Phase 3**: Expanding Features & Scalability
+- **Phase 4**: Full Deployment & Refining Features
+
+For a more detailed roadmap, refer to the proposal linked above.
+
+## Technologies Used
+
+- **Backend**: Spring Boot, PostgreSQL, Redis.
+- **Telegram Bot**: Telegram Bot API, Spring Integration.
+- **Payment Gateway**: Stripe, PayPal (optional, depending on use case).
+- **Deployment**: Docker, Kubernetes (for future scaling).
+- **Monitoring/Analytics**: Google Analytics, Prometheus, Grafana.
+
+---
+
+### Instructions for Adding the Proposal Link:
+1. Replace `link_to_your_proposal` with the actual URL or location of your proposal (if it's a file in your project repository, use a relative path to link to it).
+2. You can further customize the **Features**, **Technologies Used**, or any other section based on your project specifics.
+
+Let me know if you need more adjustments!
 ## Project Structure
 
 ```
