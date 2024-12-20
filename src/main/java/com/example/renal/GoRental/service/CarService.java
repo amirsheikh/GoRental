@@ -6,6 +6,7 @@ import com.example.renal.GoRental.repository.CarRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarService {
@@ -23,5 +24,9 @@ public class CarService {
                 request.getRadius(),
                 request.getStartTime(),
                 request.getEndTime());
+    }
+
+    public Optional<Car> getCar(Long carId) {
+        return carRepository.findById(carId);
     }
 }

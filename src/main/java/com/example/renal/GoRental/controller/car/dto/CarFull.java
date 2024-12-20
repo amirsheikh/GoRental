@@ -1,23 +1,26 @@
 package com.example.renal.GoRental.controller.car.dto;
 
 import com.example.renal.GoRental.model.Car;
+import com.example.renal.GoRental.model.CarBrands;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class CarFullDTO {
+public class CarFull {
 
-    private String brand;
+    private CarBrands brand;
     private String model;
     private Address location;
+    private long id;
 
-    public static CarFullDTO of(Car car) {
-        return CarFullDTO.builder()
+    public static CarFull of(Car car) {
+        return CarFull.builder()
                 .location(Address.builder()
                         .lat(car.getLocation().getY())
                         .lon(car.getLocation().getX()).build())
                 .brand(car.getBrand())
+                .id(car.getId())
                 .model(car.getModel()).build();
     }
 

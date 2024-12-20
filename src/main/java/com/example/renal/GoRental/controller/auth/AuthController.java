@@ -1,9 +1,9 @@
 package com.example.renal.GoRental.controller.auth;
 
 import com.example.renal.GoRental.controller.auth.dto.*;
+import com.example.renal.GoRental.model.User;
 import com.example.renal.GoRental.service.UserService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -19,10 +19,9 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<GetTokenResponse> login(@RequestBody LoginRequest loginRequest) {
+    public GetTokenResponse login(@RequestBody LoginRequest loginRequest) {
         try {
-            GetTokenResponse loginResponse = userService.login(loginRequest);
-            return new ResponseEntity<>(loginResponse, HttpStatus.CREATED);
+            return userService.login(loginRequest);
 
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
@@ -30,21 +29,19 @@ public class AuthController {
     }
 
     @PostMapping("refresh")
-    public ResponseEntity<GetTokenResponse> refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
+    public GetTokenResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
         try {
-            GetTokenResponse loginResponse =  userService.refreshToken(refreshTokenRequest.getRefreshToken());
-            return new ResponseEntity<>(loginResponse, HttpStatus.CREATED);
+            return userService.refreshToken(refreshTokenRequest.getRefreshToken());
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
         }
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest signupRequest) {
+    public UserFull signup(@RequestBody SignupRequest signupRequest) {
         try {
-            userService.registerUser(signupRequest);
-            SignupResponse response = new SignupResponse("User registered successfully", RegistartionStatus.SUCCESS);
-            return new ResponseEntity<>(response, HttpStatus.CREATED);
+            User user = userService.registerUser(signupRequest);
+            return UserFull.of(user);
         } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
         }

@@ -28,7 +28,10 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/auth/login", "/auth/signup", "/auth/refresh").permitAll()
+                .antMatchers("/auth/**",
+                        "/swagger-ui/**",
+                        "/api-docs/**",
+                        "/api-docs").permitAll()
                 .anyRequest().authenticated(); // Other requests require authentication
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
