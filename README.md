@@ -6,15 +6,6 @@ GoRental is a car rental web application built using **Spring Boot**. It enables
 
 For more details on the project's assessment, roadmap, MVP phases, and success metrics, please refer to the [full proposal](https://github.com/amirsheikh/GoRental/tree/master/proposal).
 
-## Features
-
-- **Phase 1**: Telegram Integration & Basic Features
-- **Phase 2**: User Management & Notifications
-- **Phase 3**: Expanding Features & Scalability
-- **Phase 4**: Full Deployment & Refining Features
-
-For a more detailed roadmap, refer to the proposal linked above.
-
 ## Technologies Used
 
 - **Backend**: Spring Boot, PostgreSQL, Redis.
