@@ -114,6 +114,3 @@ docker-compose down
 
 This project is licensed under the MIT License.
 
----
-
-Let me know if you need further customization!
