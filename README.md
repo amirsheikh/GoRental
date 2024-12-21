@@ -12,7 +12,7 @@ For more details on the project's assessment, roadmap, MVP phases, and success m
 - **Database**: PostgreSQL with PostGIS extension for geographic data
 - **Authentication**: JWT (JSON Web Tokens)
 - **API Documentation**: Swagger
-- **Build Tools**: Gradle/Maven
+- **Build Tools**: Gradle
 - **Containerization**: Docker & Docker Compose
 - **Testing**: JUnit and Mockito
 - **Geographic Data**: PostGIS for spatial queries
@@ -29,7 +29,7 @@ For more details on the project's assessment, roadmap, MVP phases, and success m
 | - username: String     |
 | - password: String     |
 | - email: String        |
-| - role: String         |
+| - role: Enum           |
 +------------------------+
         |
         | 1..*
@@ -89,7 +89,7 @@ To run the project locally, you need:
 
 - **JDK 11** or higher
 - **Docker** (for running the database container)
-- **Maven** or **Gradle** (for building the project)
+- **Gradle** (for building the project)
 
 ## Setup Instructions
 
@@ -122,11 +122,6 @@ Go to: [http://localhost:8083/swagger-ui/](http://localhost:8083/swagger-ui/)
 ### 5. Running Tests
 
 You can run the tests with Maven or Gradle:
-
-- **With Maven**:
-  ```bash
-  mvn clean test
-  ```
 
 - **With Gradle**:
   ```bash
