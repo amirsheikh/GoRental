@@ -8,19 +8,59 @@ For more details on the project's assessment, roadmap, MVP phases, and success m
 
 ## Technologies Used
 
-- **Backend**: Spring Boot, PostgreSQL, Redis.
-- **Telegram Bot**: Telegram Bot API, Spring Integration.
-- **Payment Gateway**: Stripe, PayPal (optional, depending on use case).
-- **Deployment**: Docker, Kubernetes (for future scaling).
-- **Monitoring/Analytics**: Google Analytics, Prometheus, Grafana.
+- **Backend Framework**: Spring Boot
+- **Database**: PostgreSQL with PostGIS extension for geographic data
+- **Authentication**: JWT (JSON Web Tokens)
+- **API Documentation**: Swagger
+- **Build Tools**: Gradle/Maven
+- **Containerization**: Docker & Docker Compose
+- **Testing**: JUnit and Mockito
+- **Geographic Data**: PostGIS for spatial queries
+- **Front-End Support**: Swagger UI for API exploration
 
----
+## Database Schema (UML Diagram)
 
-### Instructions for Adding the Proposal Link:
-1. Replace `link_to_your_proposal` with the actual URL or location of your proposal (if it's a file in your project repository, use a relative path to link to it).
-2. You can further customize the **Features**, **Technologies Used**, or any other section based on your project specifics.
+```plaintext
++------------------------+
+|       User             |
++------------------------+
+| - id: Long             |
+| - name: String         |
+| - username: String     |
+| - password: String     |
+| - email: String        |
+| - role: String         |
++------------------------+
+        |
+        | 1..*
+        v
++------------------------+
+|   Reservation          |
++------------------------+
+| - id: Long             |
+| - userId: Long         |
+| - carId: Long          |
+| - startTime: Date      |
+| - endTime: Date        |
++------------------------+
+        ^
+        |
+        | 1..*
++------------------------+
+|       Car              |
++------------------------+
+| - id: Long             |
+| - model: String        |
+| - licensePlate: String |
+| - location: Point      |
+| - brand: Enum          |
++------------------------+
+```
 
-Let me know if you need more adjustments!
+- **User**: Represents the system users.
+- **Reservation**: Maps users to their car rentals with dates and statuses.
+- **Car**: Represents available rental cars, their details, and geographic locations.
+
 ## Project Structure
 
 ```
@@ -104,4 +144,3 @@ docker-compose down
 ## License
 
 This project is licensed under the MIT License.
-
